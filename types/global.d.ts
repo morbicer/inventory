@@ -6,6 +6,9 @@ declare module '*.css' {
   export = styles;
 }
 
-// Omit type https://github.com/Microsoft/TypeScript/issues/12215#issuecomment-377567046
-type Omit<T, K extends keyof T> = Pick<T, Exclude<keyof T, K>>
+declare module "*inventory.json" {
+  const def: Array<any>;
+  export default def;
+}
+
 type PartialPick<T, K extends keyof T> = Partial<T> & Pick<T, K>;

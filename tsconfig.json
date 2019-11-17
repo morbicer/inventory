@@ -16,7 +16,9 @@
     "baseUrl": "src",
     "paths": {
       "app/*": ["./app/*"]
-    }
+    },
+    "resolveJsonModule": true,
+    "allowSyntheticDefaultImports": true
   },
   "exclude": ["build", "node_modules"]
 }

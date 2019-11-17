@@ -1,11 +1,8 @@
 import { combineReducers } from 'redux';
-import { RootState } from './state';
-import { todoReducer } from './todos';
+import listReducer from 'app/list/reducer';
 
-export { RootState };
-
-// NOTE: current type definition of Reducer in 'redux-actions' module
-// doesn't go well with redux@4
-export const rootReducer = combineReducers<RootState>({
-  todos: todoReducer as any
+export const rootReducer = combineReducers({
+  list: listReducer,
 });
+
+export type RootState = ReturnType<typeof rootReducer>
