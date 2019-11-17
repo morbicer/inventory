@@ -13,7 +13,7 @@ interface Actions {
 
 const Item: React.FC<ItemModel & Actions> = ({ name, icon, selected, onClick }) => (
     <Box
-        width={1/5}
+        width={[ 1, 1/2, 1/4, 1/8 ]}
         onClick={() => onClick(name)}
     >
         <Card
@@ -21,7 +21,7 @@ const Item: React.FC<ItemModel & Actions> = ({ name, icon, selected, onClick }) 
                 margin: 1,
                 padding: 1,
                 boxShadow: 1,
-                background: selected ? 'lime' : 'none',
+                opacity: selected ? 0.1 : 1,
             }}
         >
         <Icon icon={icon} />

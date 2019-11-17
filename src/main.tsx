@@ -11,6 +11,9 @@ import { App } from './app';
 const history = createBrowserHistory();
 const store = configureStore();
 const theme = {
+  colors: {
+    primary: 'purple',
+  },
   shadows: [
     0,
     '0 0 1rem rgba(0, 0, 0, .25)',
@@ -21,6 +24,9 @@ const theme = {
     '1rem',
     '2rem',
   ],
+  fontFamily: {
+    heading: 'Raleway, sans-serif',
+  },
 }
 
 ReactDOM.render(

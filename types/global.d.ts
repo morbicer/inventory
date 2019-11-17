@@ -11,4 +11,9 @@ declare module "*inventory.json" {
   export default def;
 }
 
+declare module "@rebass/forms" {
+  export const Label: any;
+  export const Checkbox: any;
+}
+
 type PartialPick<T, K extends keyof T> = Partial<T> & Pick<T, K>;

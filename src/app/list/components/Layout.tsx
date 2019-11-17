@@ -7,20 +7,29 @@ import {
 } from 'react-redux';
 import { RootState } from 'app/reducers';
 import List from './List';
-import { toggleItem } from '../actions';
+import { toggleItem, toggleTag } from '../actions';
+import { getItems, getTags } from '../selectors';
+import Tags from './Tags';
 
 const useSelector: TypedUseSelectorHook<RootState> = useSelectorGeneric;
 const useDispatch: () => Dispatch<Action> = useDispatchGeneric;
 
 const Layout: React.FC = () => {
-    const items = useSelector(state => state.list.data);
+    const items = useSelector(getItems);
+    const tags = useSelector(getTags);
     const dispatch = useDispatch();
 
     return (
-        <List
-            items={items}
-            onItemClick={name => dispatch(toggleItem(name))}
-        />
+        <>
+            <Tags
+                tags={tags}
+                onClick={tag => dispatch(toggleTag(tag))}
+            />
+            <List
+                items={items}
+                onItemClick={name => dispatch(toggleItem(name))}
+            />
+        </>
     );
 }
 
