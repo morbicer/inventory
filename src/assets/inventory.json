@@ -523,6 +523,13 @@
     "name": "vysilacky",
     "icon": "",
     "tags": ["skiing"]
+},
+{
+    "name": "termoska",
+    "icon": "",
+    "tags": [
+        "skiing"
+    ]
 }
 ,
 {
@@ -601,6 +608,13 @@
     "name": "zažívání",
     "icon": "",
     "tags": ["medicine"]
+},
+{
+    "name": "vysilacky",
+    "icon": "",
+    "tags": [
+        "skiing"
+    ]
 }
 ]
 
