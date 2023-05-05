@@ -3,4 +3,5 @@ export default interface Item {
     icon: string,
     tags: Array<string>,
     selected: boolean,
+    tagStyle: number,
 }

@@ -4,13 +4,22 @@ import ItemModel from './models/item';
 import TagModel from './models/tag';
 import inventory from '../../assets/inventory.json';
 
-const initialData = inventory.map((item: any) => ({ ...item, selected: false }));
-const initialTags = Array.from(new Set(inventory.flatMap((item: any) => item.tags)))
-  .map((tag) => ({ tag, selected: true }));
+const initialData = inventory.map((item: any) => ({ ...item, selected: false, tagStyle: 0 }));
+const initialTags = inventory.reduce((acc, o) => {
+  o.tags.forEach((t: string) => {
+    if (acc[t] !== undefined) {
+      acc[t].count += 1;
+    }
+    else {
+      acc[t] = { tag: t, count: 0, selected: true };
+    }
+  })
+  return acc;
+}, {} as ListState['tags']);
 
 export interface ListState {
   data: ItemModel[],
-  tags: TagModel[],
+  tags: Record<string, TagModel>,
 }
 
 const initialState: ListState = {
@@ -27,8 +36,7 @@ export function listReducer(state = initialState, action: ListActionTypes): List
       });
     case TOGGLE_TAG:
       return produce(state, draftState => {
-        const idx = state.tags.findIndex(tag => action.payload === tag.tag);
-        draftState.tags[idx].selected = !draftState.tags[idx].selected;
+        draftState.tags[action.payload].selected = !state.tags[action.payload].selected
       });
     default:
       return state

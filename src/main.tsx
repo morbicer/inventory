@@ -13,6 +13,13 @@ const store = configureStore();
 const theme = {
   colors: {
     primary: 'purple',
+    palette0: '#ffadad',
+    palette1: '#ffd6a5',
+    palette2: '#fdffb6',
+    palette3: '#caffbf',
+    palette4: '#9bf6ff',
+    palette5: '#a0c4ff',
+    palette6: '#bdb2ff',
   },
   shadows: [
     0,
@@ -27,6 +34,8 @@ const theme = {
   fontFamily: {
     heading: 'Raleway, sans-serif',
   },
+  breakpoints: ['40em', '52em', '80em', '120em'],
+  radii: ['0.25rem', '0.5rem']
 }
 
 ReactDOM.render(
